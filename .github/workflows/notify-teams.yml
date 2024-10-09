@@ -1,12 +1,14 @@
 name: Notify Teams
 
 on:
-   release:
-   types: [created]
+  release:
+    types: [created]
+
 jobs:
-    notify:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Notify Teams
-            run: |
-                curl -H "Content-Type: application/json" -d '{"text": "Se ha publicado una nueva release: '"${{ github.event.release.name }}"'"}' ${{ secrets.TEAMS_WEBHOOK_URL }}
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Notify Teams
+        run: |
+          curl -H "Content-Type: application/json" -d '{"text": "Se ha publicado una nueva release: '"${{ github.event.release.name }}"'"}' ${{ secrets.TEAMS_WEBHOOK_URL }}
