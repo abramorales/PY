@@ -1,0 +1,23 @@
+name: Lint Code
+
+on: [push]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12.3'
+
+    - name: Install Flake8
+      run: |
+        pip install -r requirements.txt
+
+    - name: Run flake8
+      run: |
+        flake8 .
