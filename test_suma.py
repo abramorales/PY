@@ -6,4 +6,3 @@ def test_suma():
     assert sum(1, 1) == 2
     assert sum(1, -5) == -4
     assert sum(0, 0) == 0
-    
