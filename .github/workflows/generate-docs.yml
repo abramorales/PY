@@ -1,0 +1,29 @@
+name: Generate Documentation
+
+
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.12.3'
+
+    - name: Install Sphinx
+      run: |
+        pip install -r requirements.txt
+
+    - name: Build Documentation
+      run: |
+        sphinx-build -b html docs/source docs/build
