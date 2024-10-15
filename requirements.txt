@@ -2,3 +2,4 @@ pytest
 flake8
 sphinx
 recommonmark
+sphinx_rtd_theme==1.2.0
